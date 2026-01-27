@@ -2,21 +2,16 @@
 , stdenv
 , fetchzip
 , fetchurl
+, gtk3
 , jdk
 , libjportaudio
 , makeWrapper
-, wrapGAppsHook3
-, openal
-, gsettings-desktop-schemas
 , writeShellScript
-, egl-wayland
 , libGL
 , xrandr
 , makeDesktopItem
 , copyDesktopItems
 , addDriverRunpath
-
-,
 }:
 stdenv.mkDerivation
   (finalAttrs: {
@@ -32,10 +27,8 @@ stdenv.mkDerivation
     };
     binPath = lib.makeBinPath [ xrandr ];
     libPath = lib.makeLibraryPath [
-      openal
       libjportaudio
       libGL
-      egl-wayland
     ];
 
     desktopItems = [
@@ -112,7 +105,7 @@ stdenv.mkDerivation
         hash = "sha256-/b03/0OqavIPnrZDvycad+9XkBSXCno9zs945lEj2D0=";
       };
 
-    nativeBuildInputs = [ makeWrapper wrapGAppsHook3 copyDesktopItems ];
+    nativeBuildInputs = [ makeWrapper copyDesktopItems ];
 
     preInstall = ''
       rm beatoraja-config.bat
@@ -122,22 +115,23 @@ stdenv.mkDerivation
     '';
 
     installPhase = ''
-      runHook preInstall
+                  runHook preInstall
 
-      mkdir -p $out/opt/lr2oraja-endlessdream
-      mkdir -p $out/bin
-      ln -s ${finalAttrs.startupScript} $out/bin/lr2oraja-endlessdream
-      mv * $out/opt/lr2oraja-endlessdream/
+                  mkdir -p $out/opt/lr2oraja-endlessdream
+                  mkdir -p $out/bin
+                  ln -s ${finalAttrs.startupScript} $out/bin/lr2oraja-endlessdream
+                  mv * $out/opt/lr2oraja-endlessdream/
 
-      cp ${finalAttrs.lr2oraja-jar} $out/opt/lr2oraja-endlessdream/beatoraja.jar
-      install -Dm644 ${finalAttrs.icon} $out/share/icons/lr2oraja-endlessdream-icon.png
+                  cp ${finalAttrs.lr2oraja-jar} $out/opt/lr2oraja-endlessdream/beatoraja.jar
+                  install -Dm644 ${finalAttrs.icon} $out/share/icons/lr2oraja-endlessdream-icon.png
 
-      wrapProgram $out/bin/lr2oraja-endlessdream \
-        --set out $out \
-        --suffix PATH : "${finalAttrs.binPath}" \
-        --prefix LD_LIBRARY_PATH : "${addDriverRunpath.driverLink}/lib:${finalAttrs.libPath}" \
+                  wrapProgram $out/bin/lr2oraja-endlessdream \
+                    --set out $out \
+                    --suffix PATH : "${finalAttrs.binPath}" \
+                    --prefix LD_LIBRARY_PATH : "${addDriverRunpath.driverLink}/lib:${finalAttrs.libPath}" \
+      	      --prefix XDG_DATA_DIRS : ${gtk3}/share/gsettings-schemas/* \
 
-      runHook postInstall
+                  runHook postInstall
     '';
     meta = with lib; {
       description = "Cross-platform rhythm game based on Java and libGDX.";
