@@ -20,8 +20,6 @@
             {
               libjportaudio = (pkgs.callPackage ./pkgs/libjportaudio/default.nix { });
             };
-          default = self.packages.${system}.lr2oraja-endlessdream;
-
         };
       }
     );
