@@ -15,11 +15,12 @@
         };
       in
       {
-        packages = {
+        packages = rec {
           lr2oraja-endlessdream = pkgs.callPackage ./pkgs/lr2oraja-endlessdream/default.nix
             {
               libjportaudio = (pkgs.callPackage ./pkgs/libjportaudio/default.nix { });
             };
+          default = lr2oraja-endlessdream;
         };
       }
     );
