@@ -97,7 +97,7 @@ stdenv.mkDerivation
     src = fetchzip
       {
         url = "https://mocha-repository.info/download/beatoraja${finalAttrs.beatoraja-version}.zip";
-        hash = "sha256-TujfJ7hgjEKs5NbGvwo3/nkbJFvcZ4mefgkdp6oQHw4=";
+        hash = "sha256-xR7tlGr0t82CfGgegp3l+euFf7CvpPzU5x6lDkd99XA=";
       };
     icon = fetchurl
       {
