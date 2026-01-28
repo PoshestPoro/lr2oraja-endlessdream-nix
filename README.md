@@ -4,11 +4,14 @@ https://github.com/seraxis/lr2oraja-endlessdream
 
 This comes preinstalled with a startup script, a desktop entry, bokutachi IR (https://boku.tachi.ac/) and libjportaudio. The icon for the desktop is found on the AUR pkgbuild for this project: https://aur.archlinux.org/packages/lr2oraja-endlessdream . 
 # How to install
-To install this flake, you will need to add it as an input to your nix configuration flake like this: 
+
 `
 ## Running through the shell 
+Assuming you have the nix package manager installed, you should be able to run this in a terminal:
 `nix run git+https://github.com/PoshestPoro/lr2oraja-endlessdream-nix --impure`
+This should install and run lr2oraja-endlessdream
 ## Nixos
+On nixos. in a flake based nix configuration, you should be able to add it as an input like so:
 ```nix
 lr2oraja = {
   url = "github:PoshestPoro/lr2oraja-endlessdream-nix";
@@ -16,11 +19,11 @@ lr2oraja = {
 };
 ```
 
-The easiest way to install it from here would be to inherit inputs into your home manager configuration and install it as a package like so:
+The easiest way to install it from here would be to inherit inputs into a home manager configuration and install it as a package like so:
 ```nix
 inputs.lr2oraja.packages.${pkgs.system}.default
 ```
-# How to run
+### How to run
 You should now be able to run it in the terminal with `lr2oraja-endlessdream` or you can run it through the desktop file. 
 Make sure to swap your audio backend to port audio.
 # Repositories used as references
