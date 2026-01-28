@@ -13,5 +13,7 @@ inputs.lr2oraja.packages.${pkgs.system}.default
 ```
 
 # Repositories used as references
+```
 https://git.fromouter.space/hamcha/beatoraja-nix/src/branch/master - Base for the flake
 https://github.com/huantianad/nixos-config/tree/main - Base for the modules
+```
