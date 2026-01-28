@@ -16,7 +16,9 @@ The easiest way to install it from here would be to inherit inputs into your hom
 ```nix
 inputs.lr2oraja.packages.${pkgs.system}.default
 ```
-
+# How to run
+You should now be able to run it in the terminal with `lr2oraja-endlessdream` or you can run it through the desktop file. 
+Make sure to swap your audio backend to port audio.
 # Repositories used as references
 ```
 https://git.fromouter.space/hamcha/beatoraja-nix/src/branch/master - Base for the flake
