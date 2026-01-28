@@ -1,3 +1,6 @@
+# What is this
+This is a nix flake that supplies an install for lr2oraja-endlessdream, which is a fork or lr2oraja, which is a fork of beatoraja. The original repository can be found here:
+https://github.com/seraxis/lr2oraja-endlessdream
 # How to install
 To install this flake, you will need to add it as an input to your nix configuration flake like this: 
 ```nix
