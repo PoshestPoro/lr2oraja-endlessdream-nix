@@ -5,10 +5,11 @@ https://github.com/seraxis/lr2oraja-endlessdream
 This comes preinstalled with a startup script, a desktop entry and bokutachi IR (https://boku.tachi.ac/). The icon for the desktop is found on the AUR pkgbuild for this project: https://aur.archlinux.org/packages/lr2oraja-endlessdream . 
 # How to install
 To install this flake, you will need to add it as an input to your nix configuration flake like this: 
-```nix
+`
 ## Running through the shell 
-nix run git+https://github.com/PoshestPoro/lr2oraja-endlessdream-nix --impure
+`nix run git+https://github.com/PoshestPoro/lr2oraja-endlessdream-nix --impure`
 ## Nixos
+```nix
 lr2oraja = {
   url = "github:PoshestPoro/lr2oraja-endlessdream-nix";
   inputs.nixpkgs.follows = "nixpkgs";
