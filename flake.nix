@@ -22,6 +22,13 @@
             };
           default = lr2oraja-endlessdream;
         };
+        devShells = pkgs.mkShell
+          {
+            buildInputs = [ pkgs.hello pkgs.git ];
+            shellHook = ''
+              	echo "Entering a fresh development environment"
+              			'';
+          };
       }
     );
 }
