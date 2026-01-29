@@ -22,6 +22,7 @@
             };
           default = lr2oraja-endlessdream;
         };
+        formatter = pkgs.nixpkgs-fmt;
         devShells = pkgs.mkShell
           {
             buildInputs = [ pkgs.hello pkgs.git ];
