@@ -25,7 +25,7 @@ inputs.lr2oraja.packages.${pkgs.system}.default
 You should now be able to run it in the terminal with `lr2oraja-endlessdream` or you can run it through the desktop file. 
 Make sure to swap your audio backend to port audio.
 # Configuration
-The configuration for lr2oraja-endlessdream will end up in `.local/share/lr2oraja-endlessdream`.
+The configuration for lr2oraja-endlessdream will end up in `~/.local/share/lr2oraja-endlessdream`.
 # Repositories used as references
 ```
 https://git.fromouter.space/hamcha/beatoraja-nix/src/branch/master - Base for the flake
